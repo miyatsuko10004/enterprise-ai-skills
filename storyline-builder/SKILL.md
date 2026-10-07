@@ -1,200 +1,154 @@
 ---
-name: storyline-builder
-description: McKinsey-style storyline framework for building presentation decks. Use when users need to structure presentations, pitch decks, or strategic communications. Creates logical flow where each storyline becomes a slide title, progressing from problem to solution.
+name: consulting-storyline-skill
+description: 戦略コンサルティング（MBB）水準のスライド骨子・ストーリーライン・エグゼクティブサマリーを構築するスキル。スライドを作る前にピラミッド原則・SCPR・Headline-Flow Testを徹底し、1行＝1スライドのアクションタイトル（主張文）で論理を組み上げる。consulting-pptx-skill（62型カタログ）と連動し、check_storyline.py の機械チェック FAIL 0 で仕上げる。トリガー例:「スライドの骨子を作って」「ストーリーラインを組んで」「エグゼクティブサマリを書いて」「提案書の構成案を作って」「ゴーストデッキを作って」。
 ---
 
-# Storyline Builder
+# コンサルティング・ストーリーライン構築スキル（consulting-storyline-skill）
 
-A structured approach to building presentation storylines where each line becomes one slide title, creating a logical narrative flow.
+戦略コンサルティングファーム（マッキンゼー、BCG、Bain等）水準の **「ストーリーライン」「エグゼクティブサマリー」「スライド骨子（ゴーストデッキ）」** を設計するための専門スキルです。
 
-## What is a Storyline?
+美しいスライド（PowerPoint / HTML）を作る前に、**「論理の骨格（ストーリーライン）」** を100%確定させます。スライドタイトル（メッセージライン）だけを通読して全体の主張と提案が完全に伝わる状態を作り、下流工程の `consulting-pptx-skill` に引き渡します。
 
-A storyline is the backbone of a presentation - a sequence of messages that tells a complete story. Each line in the storyline becomes one slide title in the final deck.
+---
 
-**Key characteristics:**
-- Each line = one slide title (action-oriented message)
-- Logical flow from problem → context → analysis → solution
-- Slide titles are the message, not topics
-- Reader should understand the story from titles alone
+## 1. コア原則（The Golden Rules）
 
-## Core Principles
+### 原則1: ストーリーライン先行（Storyline-First）
+- **いきなりスライド（PPTX/HTML）を開かない・作らない**。
+- スライドの成否の8割はストーリーライン（論理展開）で決まります。骨子が固まる前にデザインに入ると、論理の破綻による手戻りが爆発します。
+- テキスト（Markdown）で骨子を組み、タイトル通読テスト（Headline-Flow Test）をクリアしてからスライド化します。
 
-**Action Titles**
-- Titles state the finding, not the topic
-- Good: "Market grew 40% while revenue declined 5%"
-- Bad: "Market Analysis"
+### 原則2: アクションタイトル（Action Titles: 体言止め・ラベル病の禁止）
+- 各スライドのタイトルは、単なるトピック（名詞）ではなく、**「分析から導かれた結論・主張（メッセージ）」** を完全な文で言い切ります。
+- ❌ **禁止（トピックタイトル病）**:
+  - 「市場動向について」「現状の課題」「競合分析」「システム構成案」
+- ⭕️ **必須（アクションタイトル）**:
+  - 「国内市場は年率24%で急成長する一方、自社シェアは競合の価格攻勢により直近1年で5pt低下している」
+  - 「属人化と重複入力に起因する年間2.4万時間の過剰工数を、3つの改革レバーにより60%削減可能である」
 
-**Logical Progression**
-- Paint the problem or opportunity
-- Provide context (market, competitive landscape)
-- Show data to prove/disprove hypotheses
-- Present solution and next steps
+### 原則3: ピラミッド原則（Answer-First）
+1. **Tagline（15秒）**: デッキ全体の提案・核心メッセージ（1文）
+2. **Executive Summary（1枚要約）**: 結論＋それを支える2〜4つの柱
+3. **Pack（本体スライド）**: 各スライド1主張。メッセージを支える具体的なデータ・図解
+4. **Appendix（補足資料）**: 前提試算、詳細データ、補足ロジック（本編では話さない）
 
-**Story Flow**
-- Problem → Context → Analysis → Solution → Roadmap
-- Each slide builds on the previous
-- Clear beginning, middle, end
+### 原則4: Headline-Flow Test（タイトル通読テスト）
+- 全スライドのタイトルだけを上から順に並べたとき、**「Aである（現状）→ しかしBが起きた（変化）→ 核心はCである（論点）→ したがってDをすべき（解決策）」** という一筋のストーリーが淀みなく完結していなければなりません。
 
-## Storyline Templates by Situation
+---
 
-### 1. Market Strategy / Pitch Deck
+## 2. エグゼクティブサマリーの標準型（SCPR構造）
 
-**Flow: Market opportunity → Competitive position → Product strategy → Go-forward plan**
-```
-Storyline:
-1. [Market name] represents $XXB opportunity growing at XX% CAGR
-2. We operate in [specific segment] worth $XXB with XX% growth
-3. Top 3 competitors generate $XXM-XXB revenue growing XX-XX% annually
-4. Our revenue of $XXM positions us as [rank/position] with XX% growth
-5. [Product name] addresses [use case] for [target customer segment]
-6. Top 10 customers span [industries/sectors], XX% enterprise vs XX% SMB split
-7. Pricing structured as [model type] with $XX average contract value
-8. Product differentiation built on [technology/approach] vs competitors
-9. Key competitive advantages: [advantage 1], [advantage 2], [advantage 3]
-10. Three growth opportunities identified: [opp 1], [opp 2], [opp 3]
-11. Focus on [priority opportunity] based on market size and competitive position
-12. 18-month roadmap prioritizes [capability 1], [capability 2], [capability 3]
-```
+経営層・意思決定者向けのエグゼクティブサマリは、**SCPR構造**で設計します。
 
-### 2. Internal Problem-Solving (Issue Tree Format)
+| 要素 | 意味 | 記述内容 |
+| :--- | :--- | :--- |
+| **S (Situation)** | 安定した現状・前提 | クライアント企業や業界の基礎環境（共通認識） |
+| **C (Complication)** | 最近生じた変化・危機 | なぜ今動く必要があるのか（AI台頭、法改正、業績悪化等の触媒） |
+| **P (Problem)** | 解くべき核心の問い | 単一で具体的、かつ答えられる戦略的論点（「いかに〜すべきか？」） |
+| **R (Recommendation)** | 推奨施策・打ち手 | MECEに整理された2〜3つの柱、定量効果、期限・投資規模 |
 
-**Flow: Problem framing → Root cause analysis → Solution options → Prioritization → Next steps**
-```
-Storyline:
-1. [Problem statement] - current state at XX vs target of XX
-2. Problem driven by three factors: [factor 1], [factor 2], [factor 3]
-3. [Factor 1] contributes $XXM impact (XX% of total problem)
-4. [Factor 2] contributes $XXM impact (XX% of total problem)
-5. [Factor 3] contributes $XXM impact (XX% of total problem)
-6. Root cause analysis reveals [key insight from data]
-7. Three solution approaches identified to address root causes
-8. Solution 1: [approach] - XX% impact, $XXM investment, XX weeks
-9. Solution 2: [approach] - XX% impact, $XXM investment, XX weeks
-10. Solution 3: [approach] - XX% impact, $XXM investment, XX weeks
-11. Prioritize [solution X] based on impact/effort analysis
-12. Implementation roadmap: [Phase 1 by date], [Phase 2 by date], [Phase 3 by date]
-13. Success metrics: [metric 1], [metric 2], [metric 3] tracked [frequency]
-```
+---
 
-### 3. Project Roadmap / Implementation Plan
+## 3. スライド骨子の標準フォーマット（consulting-pptx-skill 連動仕様）
 
-**Flow: Approach → Phases → Activities → Timeline → Success criteria**
-```
-Storyline:
-1. Project objective: [goal statement with measurable outcome]
-2. Four-phase approach over XX weeks: Discovery → Design → Build → Launch
-3. Project roadmap spans XX weeks with clear owners and milestones:
-   - Phase 1 (Weeks 1-X): User research - XX interviews across [segments] | Owner: [role]
-   - Phase 2 (Weeks X-X): Solution design - Define stories, sprint planning | Owner: [role]
-   - Phase 3 (Weeks X-X): MVP build - [features] across XX sprints | Owner: [role]
-   - Phase 4 (Weeks X-X): Launch - Onboard XX customers | Owner: [role]
-4. Core team of XX across [# domains]: PM, Design, Engineering, [other] - Gap: Need [X more roles] and $XXK investment
-5. Success criteria: [metric 1] = XX, [metric 2] = XX by [date]
-6. ROI measurement: Track [business metric] over XX months
+ストーリーライン（骨子Markdown）は、以下のフォーマットで出力します。各スライドに `consulting-pptx-skill` の **62型カタログ（型ID）** を指定することで、そのままスライド生成スクリプトに引き渡せます。
+
+```markdown
+# [案件名/テーマ] プレゼンテーションストーリーライン
+
+- **Tagline**: [15秒で言うと何か：デッキ全体の核心メッセージ]
+- **想定聴衆**: [CEO / 役員会 / 事業本部長 / 現場リーダー]
+- **ゴール**: [投資承認 / 提案採択 / スコープ合意 / 方針決定]
+
+---
+
+### [S01] 表紙
+- 型ID: b01 (title_page)
+- タイトル: [資料タイトル]
+- サブタイトル: [サブタイトル / 核心メッセージ]
+
+### [S02] エグゼクティブサマリー
+- 型ID: m01 (executive_summary)
+- アクションタイトル: [結論を言い切るメッセージ文（25〜50文字）]
+- 論拠/柱:
+  1. [柱1: 現状と変化（S-C）]
+  2. [柱2: 解決策の骨子（R）]
+  3. [柱3: 期待効果と投資回収（インパクト）]
+
+### [S03] [セクション名やスライドテーマ]
+- 型ID: [62型カタログの型ID: 例 b06, b26, m10 等]
+- アクションタイトル: [結論・主張を言い切るアクションタイトル]
+- 論拠/ファクト:
+  - [主張を支えるデータ・ファクト1]
+  - [主張を支えるデータ・ファクト2]
+  - [示唆・インサイト]
+- 出典: [データソース / 調査元]
 ```
 
-## How to Build a Storyline
+### 【主要な型ID（使いどころ）】
+- `b01`: 表紙 (`title_page`)
+- `m01`: エグゼクティブサマリー (`executive_summary`)
+- `b06`: 前提→帰結の2カラム (`premise_conclusion`)
+- `b26`: 課題と打ち手の対比 (`issue_action_columns`)
+- `b05`: 矢羽・プロセス・フェーズ移行 (`chevron_steps`)
+- `b09`: 軸のある表・ポジショニング (`axis_table`)
+- `b11`: 主張パネル＋図解 (`claim_panel_figure`)
+- `m07`: 寄与度ブリッジ・収益増減 (`waterfall`)
+- `m10`: 選択肢の比較表 (`comparison_table`)
+- `b16`: 進捗バブル行列 (`progress_bubble_matrix`)
 
-**Step 1: Identify the situation type**
-- Market/strategy deck?
-- Problem-solving presentation?
-- Project roadmap?
-- Choose appropriate template
+*(※全62型の詳細は `references/archetype-catalog.md` または `consulting-pptx-skill` 参照)*
 
-**Step 2: Customize the flow**
-- Replace placeholders with specific content
-- Add or remove slides based on story needs
-- Maintain logical progression
+---
 
-**Step 3: Write action titles**
-- Each line should be a complete message
-- Include data points and specifics
-- Test: Can someone understand your story from titles alone?
+## 4. 実行ワークフロー（4ステップ）
 
-**Step 4: Verify flow**
-- Does it progress logically?
-- Are there gaps in the logic?
-- Does it lead to clear next steps?
-
-**Step 5: Build slides**
-- Each storyline becomes one slide
-- Slide title = storyline
-- Slide body supports the title message
-
-## Common Storyline Patterns
-
-**Problem-to-Solution Arc**
-```
-Problem statement → Problem sizing → Root causes → 
-Solution options → Recommendation → Implementation plan
+```mermaid
+flowchart TD
+    A["Step 1: ヒアリング・ファクト整理<br>(一次情報・議事録から重要インサイト抽出)"] --> B["Step 2: SCPR & 骨子ドラフト作成<br>(1行=1スライドのアクションタイトル化)"]
+    B --> C["Step 3: 機械チェック実行<br>(scripts/check_storyline.py で FAIL 0)"]
+    C --> D["Step 4: McKinsey Critic レビュー<br>(論理の飛躍・So What欠落の解消)"]
+    D --> E["Step 5: slide-designer / PPTX連携<br>(確定骨子をもとにHTML/PPTX生成)"]
 ```
 
-**Market-to-Strategy Arc**
+1. **Step 1: インプットの論点整理**:
+   - 目的（誰に、何を伝え、どう動いてほしいか）を明確化。
+   - 一次情報から「事実（Fact）」と「示唆（So What?）」を抽出。
+2. **Step 2: テンプレート選定と骨子ドラフト作成**:
+   - `references/storyline-templates.md` から最適なストーリー展開（提案、改革、役員報告等）を選択。
+   - 各スライドにアクションタイトル、型ID、論拠箇条書きを記述。
+3. **Step 3: 機械検証の実行**:
+   - `python3 scripts/check_storyline.py <骨子ファイル.md>` を実行。
+   - 体言止め、トピックタイトル病、文字数の警告を修正し、**FAIL 0** を達成する。
+4. **Step 4: McKinsey Critic による論理ストレステスト**:
+   - 各スライドが全体の結論に貢献しているか？
+   - 「だから何？（So What?）」に対する答えがあるか？
+   - 競合や前提の漏れ（MECE性）がないか？
+5. **Step 5: スライド生成への引き渡し**:
+   - 確定した骨子（Markdown）をもとに、`consulting-pptx-skill`（または `slide-designer`）がスライドHTMLおよびPPTXを生成。
+
+---
+
+## 5. 機械チェックスクリプト（`check_storyline.py`）
+
+本スキルには、骨子Markdownを自動解析するバリデータが付属しています。
+
+```bash
+# 基本実行（エラー FAIL を検出）
+python3 scripts/check_storyline.py docs/proposal_storyline.md
+
+# 厳格モード（警告 WARN もエラー扱い）
+python3 scripts/check_storyline.py docs/proposal_storyline.md --strict
 ```
-Market opportunity → Competitive landscape → Our position → 
-Product strategy → Roadmap → Expected outcomes
-```
 
-**Analysis-to-Action Arc**
-```
-Key question → Hypotheses → Data analysis → 
-Insights → Recommendations → Next steps
-```
-
-## Usage Guidelines
-
-**When creating storyline:**
-- Start with the end in mind (what decision/action needed?)
-- Use MECE principles to organize sections
-- Include quantitative support where possible
-- Make the "so what" clear at each step
-
-**When reviewing storyline:**
-- Can you understand the full story from titles alone?
-- Is the logical flow clear?
-- Are titles action-oriented (not topics)?
-- Does it lead to clear conclusion/next steps?
-- Are data points specific (not vague)?
-
-## Common Mistakes to Avoid
-
-- **Topic titles**: "Market Analysis" instead of "Market growing 40% CAGR"
-- **Missing the "so what"**: Data without interpretation
-- **Illogical jumps**: Skipping steps in reasoning
-- **Too granular**: 50 slides when 15 would tell the story
-- **No ending**: Storyline trails off without clear next steps
-- **Vague language**: "Good performance" instead of "Revenue grew 25%"
-
-## Tips for Effective Storylines
-
-**Start with structure**
-- Outline major sections first
-- Fill in detailed slides within each section
-- Typical deck: 15-25 slides for exec presentation
-
-**Consider executive summary upfront**
-- Optional first slide summarizing key message
-- Useful for: Problem statement, recommendation, expected impact
-- Allows execs to get punchline immediately
-- Rest of deck provides supporting detail
-
-**Use parallel structure**
-- Keep similar sections in similar format
-- Makes story easier to follow
-- Example: If slide 5 is "Factor 1: $XXM impact", slide 6 should be "Factor 2: $XXM impact"
-
-**Include signposts**
-- Use section breaks or agenda slides
-- Help audience know where they are in story
-- Example: "Three drivers of the problem" followed by three slides
-
-**Build to the punchline**
-- Lead audience through your thinking
-- Don't jump to recommendations without proof
-- But don't bury the lede - executive summary upfront often works
-
-**Iterate**
-- First draft won't be perfect
-- Review logical flow
-- Get feedback before building full slides
-- Much easier to reorganize storyline than finished slides
+### バリデータの判定基準
+- **FAIL**:
+  - トピックタイトル（「〜の課題」「〜の概要」「〜について」等の体言止め・名詞ラベル）
+  - スライド見出しが検出されない
+- **WARN**:
+  - タイトルが短すぎる（< 15文字）または長すぎる（> 65文字）
+  - 疑問形タイトル（「〜か？」）
+  - 型ID（Archetype）の未指定
+  - 論拠・ファクトの箇条書きが2件未満
+  - 表紙・エグゼクティブサマリの欠落
